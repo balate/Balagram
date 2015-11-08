@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balagram</title>
+
+        <!--cargamos los estilos de bootstrap-->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!--cargamos los sttyle de angular-loading-bar-->
+    <link rel="stylesheet" href="styles/loading-bar.min.css" />
+</head>
+
+<body ng-app="balagram">
+
+    <!--CONTENEDOR GENERAL DE LA APLICACIÓN-->
+    <div class="container">
+
+        <header>
+            <h1>Balagram</h1>
+        </header>
+        <!--barra de navegacio-->
+        <nav ng-controller="BarraNavegacionCrtl">
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class="{'active': rutaEsTodos()}">
+                    <a href="#/todos">Todos los post</a>
+                </li>
+                <li role="presentation" ng-class="{'active': rutaEsMios()}">
+                    <a href="#/mios">Mis post</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!--contenedor de las vistas-->
+        <section ng-view></section>
+
+    </div>
+
+
+    <!--cargamos la libreria de angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+    <!--cargamos librerias de terceros-->
+    <script src="vendor/loading-bar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <!--cargamos app.js-->
+    <script src="scripts/app.js"></script>
+    <!--cargamos los providers-->
+    <script src="scripts/Providers/Backend.js"></script>
+    <!--cargamos los constants-->
+    <script src="scripts/constants/Properties.js"></script>
+    <!-- Cargamos los filtros-->
+    <script src="scripts/filters/firma.js"></script>
+    <!--cargamos los controladores-->
+    <script src="scripts/controllers/postCollections.js"></script>
+    <script src="scripts/controllers/MisPost.js"></script>
+    <script src="scripts/controllers/barraNavegacion.js"></script>
+    <script src="scripts/controllers/detallePost.js"></script>
+    <!--cargamos las directivas-->
+    <script src="scripts/directives/ElementoPost.js"></script>
+
+
+</body>
+</html>

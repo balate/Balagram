@@ -1,0 +1,27 @@
+<div>
+    <header>
+        <h1>Todos los Post</h1>
+    </header>
+    <!--pintamos caja de texto para filtrar por autor-->
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="filtroAutor">Autor del Post</label>
+            <input type="text" id="filtroAutor" ng-model="filtroPorAuthor"/>
+        </div>
+    </form>
+
+
+    <table class="table" >
+        <tr ng-repeat="post in posts |filter:{author:filtroPorAuthor}"
+            elemento-post
+            post="post"
+            on-post-click="navegar(idPost)"></tr>
+    </table>
+    <!--pintamos un control de paginacion. esto es una directiva de angular UI bootstrap-->
+    <uib-pagination ng-change="paginador.cambioDePagina()"
+                    ng-model="paginador.paginaActual"
+                    total-items="paginador.totalElementos"
+                    items-per-page="paginador.elementosPorPagina"
+                    boundary-links="true">
+    </uib-pagination>
+</div>

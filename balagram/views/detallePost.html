@@ -1,0 +1,46 @@
+<!--este articulo articulo hace referencia a los detalles del post-->
+<article>
+    <header>
+        <button class="btn btn-link" ng-click="volver()">Volver</button>
+    </header>
+    <div>
+        <img ng-src="{{post.image_url}}" alt="Sin Imagen" width="320" class="img-circle"/>
+    </div>
+    <div>
+        <h4>{{ ::post.text }}</h4>
+    </div>
+    <div>
+        <small>{{::post.author | Firma:post.created}}</small>
+    </div>
+    <footer>
+        Me Gusta <span class="badge">{{::post.likes}}</span>
+        No me Gusta <span class="badge">{{::post.dislikes}}</span>
+    </footer>
+
+</article>
+
+<!--este div articulo hace referencia a los comentarios del post-->
+<div>
+    <header>
+        <h4>
+        Comentarios
+        </h4>
+    </header>
+<!-- formulario para los comentarios-->
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="texto-comentario">Email address</label>
+            <input type="text" class="form-control" id="texto-comentario" placeholder="Escribe tu comentario" ng-model="comentario">
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="enviarComentario()">Enviar</button>
+    </form>
+
+    <!-- coleccion de comentarios-->
+    <div class="list-group">
+        <a href="#" class="list-group-item" ng-repeat="comentario in post.comments">
+            <h4 class="list-group-item-heading">{{::comentario.text}}</h4>
+            <p class="list-group-item-text">{{::comentario.author | Firma:post.created}}</p>
+        </a>
+    </div>
+
+</div>
